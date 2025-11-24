@@ -1,12 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Welcome to my website</title>
-</head>
-<body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>portfolio</title>
+  </head>
+  <body class="bg-black text-white">
+     <main>
+       /* Navigation Bar */
+      <nav class=" mx-auto rounded-b-lg max-w-200  px-4 py-2 bg-neutral-900" >
+     
+        <ul class=" justify-center flex gap-x-4">
+          <li><a  class="hover:bg-amber-700 hover:animate- block "    href="#">Home</a></li>
+          <li><a  class="hover:bg-amber-700 hover: animate-bounce"    href="#">Case Studies</a></li>
+          <li><a  class="hover:bg-amber-700 hover: animate-bounce"    href="#">Testimonials</a></li>
+          <li><a  class="hover:bg-amber-700 hover: animate-bounce"    href="#">Recent Work</a></li>
+          <li><a  class="hover:bg-amber-700 hover: animate-bounce"    href="#">Get in Touch</a></li>
+        </ul>
+      
+      </nav>
+      /* Logo */
+      <header class=" mx-auto max-w-150  px-4 py-2  flex justify-end">
+        <img class=" w-32 h-32 rounded-full border-4 border-amber-700 " src="src/assets/logo.png" alt="Logo" />
+      </header>
+      /* Introduction Section */
+      <section class=" mx-auto max-w-3xl px-4 py-8 text-righ">
+        <h1 class=" text-4xl font-bold mb-4">Welcome to My Portfolio</h1>
+        <p class=" text-lg mb-6">I'm a passionate developer specializing in creating beautiful and functional web applications.</p>
+        <a href="#" class=" bg-amber-700 text-white px-6 py-3 rounded-full hover:bg-amber-800 transition">View My Work</a>
+      </section>
+      /* Footer */
 
-<h1>More to come</h1>
-<p>.</p>
-
-</body>
+     </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>

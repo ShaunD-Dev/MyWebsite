@@ -6,34 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="src/style.css" />
     <title>portfolio</title>
-  </head>
-  <body class="bg-black text-white">
-     <main>
-       <!-- /* Navigation Bar */ -->
-      <nav class=" mx-auto rounded-b-lg max-w-200  px-4 py-2 bg-neutral-900" >
-     
-        <ul class=" justify-center flex gap-x-4">
-          <li><a  class="hover:bg-amber-700 hover:animate- block "    href="#">Home</a></li>
-          <li><a  class="hover:bg-amber-700 hover: animate-bounce"    href="#">Case Studies</a></li>
-          <li><a  class="hover:bg-amber-700 hover: animate-bounce"    href="#">Testimonials</a></li>
-          <li><a  class="hover:bg-amber-700 hover: animate-bounce"    href="#">Recent Work</a></li>
-          <li><a  class="hover:bg-amber-700 hover: animate-bounce"    href="#">Get in Touch</a></li>
-        </ul>
-      
-      </nav>
-      <!-- /* Logo */ -->
-      <header class=" mx-auto max-w-150  px-4 py-2  flex justify-end">
-        <img class=" w-32 h-32 rounded-full border-4 border-amber-700 " src="Images/Logo/Logo.png" alt="Logo" />
-      </header>
-      <!-- /* Introduction Section */ -->
-      <section class=" mx-auto max-w-3xl px-4 py-8 text-righ">
-        <h1 class=" text-4xl font-bold mb-4">Welcome to My Portfolio</h1>
-        <p class=" text-lg mb-6">I'm a passionate developer specializing in creating beautiful and functional web applications.</p>
-        <a href="#" class=" bg-amber-700 text-white px-6 py-3 rounded-full hover:bg-amber-800 transition">View My Work</a>
-      </section>
-      <!-- /* Footer */ -->
 
-     </main>
+    <!-- Vanta + ThreeJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
+  </head>
+
+  <body class="bg-black text-white relative">
+
+    <!-- Vanta Background Layer -->
+    <div id="vanta-bg" class="fixed inset-0 -z-10"></div>
+
+    <main>
+      <!-- Navigation Bar -->
+      <nav class="mx-auto rounded-b-lg max-w-5xl px-4 py-2 bg-neutral-900 border-b">
+        <ul class="justify-center flex gap-x-4">
+          <li><a class="hover:bg-amber-700 block px-2 py-1 rounded" href="#">WhoAmI</a></li>
+          <li><a class="hover:bg-amber-700 block px-2 py-1 rounded" href="#">MyWork</a></li>
+          <li><a class="hover:bg-amber-700 block px-2 py-1 rounded" href="#">ShowCase</a></li>
+          <li><a class="hover:bg-amber-700 block px-2 py-1 rounded" href="#">Catalog</a></li>
+          <li><a class="hover:bg-amber-700 block px-2 py-1 rounded" href="#">Get in Touch</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header / Logo Layout -->
+      <header class="mx-auto max-w-5xl flex justify-between items-center px-4 py-6">
+        <section class="max-w-3xl">
+          <h1 class="text-4xl font-bold mb-4">Welcome to My Portfolio</h1>
+          <p class="text-lg mb-6">I'm a passionate developer specializing in creating beautiful and functional web applications.</p>
+        </section>
+
+          <!-- Coin-on-edge 3D spin (clockwise) -->
+        <div class="flex items-center justify-center  border-3 border-white rounded-full">
+  <!-- container controls perspective via inline style (easier than customizing Tailwind) -->
+  <div style="perspective: 900px;" class="w-40 h-40">
+    <!-- coin element -->
+    <div class="relative w-full h-full mx-auto" style="transform-style: preserve-3d; animation: coin-spin var(--coin-speed, 5s) linear infinite;">
+      <!-- front face -->
+      <img src="Images/Logo/Logo.png" alt="coin front"
+           class="absolute inset-0 w-full h-full object-cover rounded-full"
+           style="backface-visibility: hidden;">
+      <!-- back face (rotated 180deg so it's the back side) -->
+      <img src="Images/Logo/logo-placeholder-image.png" alt="coin back"
+           class="absolute inset-0 w-full h-full object-cover rounded-full"
+           style="transform: rotateY(180deg); backface-visibility: hidden;">
+    </div>
+  </div>
+</div>
+      </header>
+    </main>
+
+    <script>
+    VANTA.CLOUDS({
+    el: "#vanta-bg",
+    mouseControls: false,
+    touchControls: false,
+    gyroControls: false,
+    minHeight: 100.00,
+    minWidth: 200.00,
+    backgroundColor: 0x0,
+    skyColor: 0x0,
+    cloudColor: 0xe3b3dd,
+    sunColor: 0x0,
+    sunGlareColor: 0x0,
+    sunlightColor: 0xf02626,
+    speed: 0.90
+})
+    </script>
+     
     <script type="module" src="/src/main.js"></script>
+
+  
+  
+  
   </body>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic webBg ID</title>
+</head>
+<body>
+
+  <div>
+    Current ID: <span id="display">0</span>
+  </div>
+  <button id="btn">Next ID</button>
+
+  <script type="module">
+    import { webBg } from 'https://satyamv7.github.io/webBackground/index.js';
+
+    // Track current ID
+    let currentId = 0;
+
+    // Initial background
+    let cleanup = webBg(String(currentId), 'z-10 fixed inset-0');
+
+    const display = document.getElementById("display");
+    const btn = document.getElementById("btn");
+
+    btn.addEventListener("click", () => {
+      // Increment + loop
+      currentId = (currentId + 1 > 10) ? 0 : currentId + 1;
+
+      // Update UI
+      display.textContent = currentId;
+
+      // Remove old background if cleanup function exists
+      if (typeof cleanup === "function") cleanup();
+
+      // Apply new background
+      cleanup = webBg(String(currentId), 'z-10 fixed inset-0');
+    });
+  </script>
+
+</body>
+</html>

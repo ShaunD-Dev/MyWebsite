@@ -1,5 +1,8 @@
 
- @tailwindcss 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --sky-top: 220 80% 95%;
   --sky-bottom: 205 90% 65%;

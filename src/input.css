@@ -1,1 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Custom CSS below */
+
+:root {
+  --sky-top: 220 80% 95%;
+  --sky-bottom: 205 90% 65%;
+  --cloud-color: rgba(255, 255, 255, 0.95);
+  --cloud-shadow: rgba(0, 0, 0, 0.06);
+  --speed-slow: 120s;
+  --speed-medium: 80s;
+  --speed-fast: 50s;
+}
+
+@keyframes coin-spin {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(-360deg); }
+}
+
+/* ...rest of your custom CSS here */

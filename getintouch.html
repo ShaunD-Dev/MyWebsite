@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="src/style.css" />
+  <title>Get in touch</title>
+
+  <!-- Vanta Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 py-4">
+      <ul class="justify-center flex gap-x-4">
+        <li><a class="hover:bg-amber-700 block px-2 py-1 rounded" href="index.html">WhoAmI</a></li>
+        <li><a class="hover:bg-amber-700 block px-2 py-1 rounded" href="mywork.html">MyWork</a></li>
+        <li><a class="hover:bg-amber-700 block px-2 py-1 rounded" href="showcase.html">ShowCase</a></li>
+        <li><a class="hover:bg-amber-700 block px-2 py-1 rounded" href="catalog.html">Catalog</a></li>
+        <li><a class="hover:bg-amber-700 block px-2 py-1 rounded" href="#">Get in Touch</a></li>
+      </ul>
+    </nav>
+
+</head>
+
+<body class="bg-black text-white relative">
+
+  <!-- Vanta Background -->
+  <div id="vanta-bg" class="fixed inset-0 -z-10"></div>
+
+  <!-- LOGO -->
+  <div class="flex items-center justify-center mt-8">
+    <div style="perspective: 900px;" class="w-40 h-40">
+      <div class="relative w-full h-full mx-auto"
+           style="transform-style: preserve-3d; animation: coin-spin var(--coin-speed, 5s) linear infinite;">
+        
+        <img src="Images/Logo/Logo.png" alt="coin front"
+             class="absolute inset-0 w-full h-full object-cover rounded-full"
+             style="backface-visibility: hidden;">
+        
+        <img src="Images/Logo/logo-placeholder-image.png" alt="coin back"
+             class="absolute inset-0 w-full h-full object-cover rounded-full"
+             style="transform: rotateY(180deg); backface-visibility: hidden;">
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="text-center my-4 max-w-md mx-auto">
+    <h2 class="text-2xl font-bold mb-4">Get in Touch</h2>
+
+    <p class="mb-6">
+      I'd love to hear from you! Whether you have a question, a project idea,  
+      or just want to say hello, feel free to reach out through any of the platforms below:
+    </p>
+
+    <!-- Social buttons -->
+    <div class="flex justify-center gap-4">
+      <button onclick="window.location.href='Instagram-link.html'"
+              class="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full">
+        Instagram
+      </button>
+
+      <button onclick="window.location.href='LinkedIn-link.html'"
+              class="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full">
+        LinkedIn
+      </button>
+
+      <button onclick="window.location.href='Email-link.html'"
+              class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">
+        Email
+      </button>
+    </div>
+  </div>
+
+  <!-- Vanta Init -->
+  <script>
+    VANTA.GLOBE({
+      el: "#vanta-bg",
+      mouseControls: false,
+      touchControls: false,
+      gyroControls: false,
+      minHeight: 400.00,
+      minWidth: 400.00,
+      scale: 2.0,
+      scaleMobile: 1.00,
+      color: 0xff0057,
+      color2: 0x000000,
+      size: 1.10,
+      backgroundColor: 0x000000
+    });
+  </script>
+
+  <script type="module" src="/src/main.js"></script>
+
+</body>
+</html>
+
+    <!-- Header / Logo Layout -->
+    <header class="mx-auto max-w-5xl flex justify-between items-center px-4 py-6">
+      <section class="max-w-3xl">
+        <h1 class="text-4xl font-bold mb-4">Get in Touch</h1>
+        <p class="text-lg mb

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="dist/output.css" />
     <title>portfolio</title>
 
     <!-- Vanta + ThreeJS -->
@@ -15,7 +15,7 @@
   <body class="bg-black text-white relative">
 
     <!-- Vanta Background Layer -->
-    <div id="vanta-bg" class="fixed inset-0 -z-5"></div>
+    <div id="vanta-bg" class="fixed inset-0 -z-10"></div>
 
     <main>
       <!-- Navigation Bar -->
@@ -43,11 +43,11 @@
     <!-- coin element -->
     <div class="relative w-full h-full mx-auto" style="transform-style: preserve-3d; animation: coin-spin var(--coin-speed, 5s) linear infinite;">
       <!-- front face -->
-      <img src="Images/Logo/Logo.png" alt="coin front"
+      <img src="images/Logo/Logo.png" alt="coin front"
            class="absolute inset-0 w-full h-full object-cover rounded-full"
            style="backface-visibility: hidden;">
       <!-- back face (rotated 180deg so it's the back side) -->
-      <img src="Images/Logo/logo-placeholder-image.png" alt="coin back"
+      <img src="images/Logo/logo-placeholder-image.png" alt="coin back"
            class="absolute inset-0 w-full h-full object-cover rounded-full"
            style="transform: rotateY(180deg); backface-visibility: hidden;">
     </div>
@@ -74,7 +74,7 @@
 })
     </script>
      
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="src/main.js"></script>
 
   
   

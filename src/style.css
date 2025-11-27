@@ -1,6 +1,5 @@
 
-@import "tailwindcss";
-
+ @tailwindcss 
 :root {
   --sky-top: 220 80% 95%;
   --sky-bottom: 205 90% 65%;
@@ -11,7 +10,6 @@
   --speed-fast: 50s;
 }
 
-
 .sky-gradient {
   background: linear-gradient(
     180deg,
@@ -19,7 +17,6 @@
     hsl(205 90% 65%) 100%
   );
 }
-
 
 @keyframes float-left {
   0% { transform: translateX(120%); }
@@ -44,7 +41,7 @@
   will-change: transform;
 }
 
-
+/* Parallax layers */
 .layer-back .cloud {
   animation: float-left var(--speed-slow) linear infinite;
   opacity: 0.9;
@@ -60,33 +57,42 @@
   opacity: 1;
 }
 
-
+/* FIXED: Prevent animation override — merged speeds + bobbing */
 @media (min-width: 640px) {
-  .cloud {
-    animation-name: float-left, bob;
-    animation-duration: var(--speed-medium), 6s;
-    animation-iteration-count: infinite, infinite;
-    animation-timing-function: linear, ease-in-out;
+  .layer-back .cloud {
+    animation: 
+      float-left var(--speed-slow) linear infinite,
+      bob 6s ease-in-out infinite;
+  }
+
+  .layer-mid .cloud {
+    animation: 
+      float-left var(--speed-medium) linear infinite,
+      bob 6s ease-in-out infinite;
+  }
+
+  .layer-front .cloud {
+    animation: 
+      float-left var(--speed-fast) linear infinite,
+      bob 6s ease-in-out infinite;
   }
 }
 
+/* Custom manual durations (still valid) */
 .dur-1 { animation-duration: var(--speed-fast); }
 .dur-2 { animation-duration: calc(var(--speed-fast) * 1.6); }
 .dur-3 { animation-duration: var(--speed-medium); }
 .dur-4 { animation-duration: var(--speed-slow); }
-
 
 .content {
   position: relative;
   z-index: 40;
 }
 
-
 @keyframes coin-spin {
   from { transform: rotateY(0deg); }
   to   { transform: rotateY(-360deg); }
 }
-
 
 .coin-edge-shadow {
   box-shadow:

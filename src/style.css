@@ -1,11 +1,6 @@
-/* ======================================
-   TAILWIND IMPORT (must be first)
-====================================== */
+
 @import "tailwindcss";
 
-/* ======================================
-   ROOT VARIABLES
-====================================== */
 :root {
   --sky-top: 220 80% 95%;
   --sky-bottom: 205 90% 65%;
@@ -16,9 +11,7 @@
   --speed-fast: 50s;
 }
 
-/* ======================================
-   SKY GRADIENT
-====================================== */
+
 .sky-gradient {
   background: linear-gradient(
     180deg,
@@ -27,9 +20,7 @@
   );
 }
 
-/* ======================================
-   CLOUD ANIMATION
-====================================== */
+
 @keyframes float-left {
   0% { transform: translateX(120%); }
   100% { transform: translateX(-140%); }
@@ -53,7 +44,7 @@
   will-change: transform;
 }
 
-/* Cloud layer speeds */
+
 .layer-back .cloud {
   animation: float-left var(--speed-slow) linear infinite;
   opacity: 0.9;
@@ -69,7 +60,7 @@
   opacity: 1;
 }
 
-/* Add gentle bobbing on larger screens */
+
 @media (min-width: 640px) {
   .cloud {
     animation-name: float-left, bob;
@@ -79,29 +70,24 @@
   }
 }
 
-/* Optional cloud duration variations */
 .dur-1 { animation-duration: var(--speed-fast); }
 .dur-2 { animation-duration: calc(var(--speed-fast) * 1.6); }
 .dur-3 { animation-duration: var(--speed-medium); }
 .dur-4 { animation-duration: var(--speed-slow); }
 
-/* ======================================
-   CONTENT LAYERING
-====================================== */
+
 .content {
   position: relative;
   z-index: 40;
 }
 
-/* ======================================
-   COIN SPIN ANIMATION (REQUIRED)
-====================================== */
+
 @keyframes coin-spin {
   from { transform: rotateY(0deg); }
   to   { transform: rotateY(-360deg); }
 }
 
-/* Optional coin shadow effect */
+
 .coin-edge-shadow {
   box-shadow:
     0 6px 18px rgba(0, 0, 0, 0.25),

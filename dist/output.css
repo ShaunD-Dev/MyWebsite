@@ -588,6 +588,10 @@ video {
   }
 }
 
+.collapse {
+  visibility: collapse;
+}
+
 .fixed {
   position: fixed;
 }
@@ -1020,7 +1024,7 @@ canvas {
     rgba(255, 255, 255, 0) 70%
   );
   z-index: 20;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 /* Image inside the glass */
@@ -1057,7 +1061,7 @@ canvas {
 
 .BackGroundImg {
   position: fixed;
-  /* stay in place even if scrolling */
+  /* stay in place */
   top: 0;
   left: 0;
   width: 100vw;
@@ -1066,9 +1070,14 @@ canvas {
   /* full viewport height */
   -o-object-fit: cover;
      object-fit: cover;
-  /* scale to cover, cropping if necessary */
+  /* scale to cover */
   z-index: -1;
   /* behind everything else */
+  /* blur the image itself */
+  filter: blur(6px) saturate(180%);
+  /* optional: smooth edges */
+  transform: scale(1.05);
+  /* slightly scale so edges don’t show */
 }
 
 .glass-container {
@@ -1079,26 +1088,173 @@ canvas {
   padding: 20px;
 }
 
-.liquid-glass-nav
-{
+.liquid-glass-nav {
   /* Glass effect */
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(6px) saturate(180%);
+  background: rgba(129, 53, 53, 0.12);
+  backdrop-filter: blur(18px) saturate(180%);
   -webkit-backdrop-filter: blur(18px) saturate(180%);
   border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(26, 23, 23, 0.22);
   box-shadow:
-    inset 0 0 15px rgba(255, 255, 255, 0.15),
+    inset 0 0 15px rgba(0, 0, 0, 0.15),
     0 15px 40px rgba(0, 0, 0, 0.4);
   overflow: hidden;
-  display: block;
+  display: flex;
+  /* flex for centering */
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  /* spacing between image and text */
-  width: auto;
+  /* spacing between items */
+  width: 90%;
   max-width: 620px;
-  margin: auto;
+  height: auto;
+  margin: 20px auto;
+  /* center horizontally with margin */
+  padding: 10px 0;
+  /* optional vertical padding */
+}
+
+.liquid-glass-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  /* spacing between nav links */
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.liquid-glass-nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  border-radius: 8px;
+  transition: background-color 0.4s ease, transform 0.2s ease;
+}
+
+.liquid-glass-nav ul li a:hover {
+  background-color: rgba(104, 40, 40, 0.2);
+  transform: scale(1.05);
+  /* subtle zoom on hover */
+}
+
+.liquid-glass {
+  width: 320px;
+  padding: 20px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: inset 0 0 25px rgba(255,255,255,0.15), 0 15px 40px rgba(0,0,0,0.4);
+  cursor: pointer;
+  overflow: hidden;
+  transition: max-height 0.4s ease, box-shadow 0.3s ease;
+  max-height: 280px;
+  /* fits the title h2 + image */
+  position: relative;
+}
+
+.liquid-glass.active {
+  max-height: 400px;
+  /* expand to show h3 */
+  box-shadow: inset 0 0 25px rgba(255,255,255,0.2), 0 25px 50px rgba(0,0,0,0.5);
+}
+
+.extra-text {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-top: 10px;
+}
+
+.liquid-glass.active .extra-text {
+  opacity: 1;
+}
+
+.glass-img {
+  width: 80%;
+  /* smaller than card to show border */
+  margin: 0 auto;
+  display: block;
+  border-radius: 15px;
+  /* rounded corners */
+  border: 2px solid rgba(255,255,255,0.3);
+  /* subtle highlight */
+  filter: grayscale(10%) sepia(10%) drop-shadow(0 4px 15px rgba(0,0,0,0.5));
+  transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+}
+
+/* Hover effects */
+
+.glass-img:hover {
+  transform: rotate(-2deg) scale(1.05);
+  /* tilt and zoom */
+  filter: grayscale(0%) sepia(0%) drop-shadow(0 6px 20px rgba(0,0,0,0.6));
+}
+
+/* Overlay for text readability */
+
+.glass-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.25));
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Expand animation when card is active */
+
+.liquid-glass.active .glass-img {
+  transform: translateY(-10px) scale(1.05);
+  /* move up and zoom */
+  filter: grayscale(0%) sepia(0%) drop-shadow(0 8px 25px rgba(0,0,0,0.7));
+  transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Rain container overlay */
+
+.rain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  /* so it doesn’t block clicks */
+  z-index: 0;
+  /* behind content but above background image */
+  overflow: hidden;
+}
+
+/* Single raindrop */
+
+.rain-drop {
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background: rgba(245, 243, 243, 0.2);
+  animation: fall linear infinite;
+}
+
+/* Animation for falling drops */
+
+@keyframes fall {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
 }
 
 .hover\:bg-amber-700:hover {
